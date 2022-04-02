@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --config webpack.config.js --progress --color"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "three": "^0.139.2"
   },
   "devDependencies": {
     "html-webpack-plugin": "^5.5.0",

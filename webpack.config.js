@@ -4,9 +4,12 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src',
   plugins: [ 
-    new HtmlWebpackPlugin({ title: 'My Development' }) 
+    new HtmlWebpackPlugin({
+      hash: true,
+      // filename: './src/index.html'
+    }), 
   ],
   output: {
     filename: '[name].bundle.js',

@@ -1,12 +1,31 @@
-import _ from 'lodash'
+import { Scene, PerspectiveCamera, WebGLRenderer, 
+  BoxGeometry,
+  MeshBasicMaterial,
+  Mesh } from "three";
 
-function component() {
-  const element = document.createElement('div');
-  console.log('lodash', _)
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'world'], ' ');
+const scene = new Scene();
+const camera = new PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-  return element;
+const renderer = new WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+
+const geometry = new BoxGeometry();
+const material = new MeshBasicMaterial( { color: '#a020f0' } );
+const cube = new Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 2
+
+
+function animate() {
+  requestAnimationFrame( animate );
+	renderer.render( scene, camera );
 }
+animate();
 
-document.body.appendChild(component());
+let angle = 0;
+setInterval(() => {
+  console.log(cube.rotation)
+  cube.rotateZ(1)
+}, 1000)
