@@ -4,15 +4,15 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src',
+  entry: './src/index.js',
   plugins: [ 
     new HtmlWebpackPlugin({
       hash: true,
-      // filename: './src/index.html'
+      template: path.resolve('public', 'index.html')
     }), 
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: 'bundle.js',
     path: path.resolve('dist'),
     clean: true,
   },

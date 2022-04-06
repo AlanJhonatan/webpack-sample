@@ -8,6 +8,7 @@
     "dev": "webpack-dev-server --config webpack.config.js --progress --color"
   },
   "dependencies": {
+    "fabric": "^5.2.1",
     "three": "^0.139.2"
   },
   "devDependencies": {
