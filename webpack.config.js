@@ -18,6 +18,7 @@ module.exports = {
       directory: path.resolve('public'),
     },
     hot: true,
+    open: true,
   },
   module: {
     rules: [

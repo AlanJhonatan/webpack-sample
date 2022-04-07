@@ -21,9 +21,9 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-body {
+/* body {
   overflow: hidden;
-}
+} */
 
 body, input, textarea, button {
   font-family: 'Roboto', Helvetica, sans-serif; 
@@ -41,4 +41,8 @@ button {
 [disabled] {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.text-float {
+  position: absolute;
 }
