@@ -4,7 +4,6 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "isolatedModules": true,
     "skipLibCheck": true,
     "allowJs": true,
     "noEmit": true,
