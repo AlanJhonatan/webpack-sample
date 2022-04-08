@@ -17,25 +17,19 @@ class HandleDoubleClick {
       showCancelButton: true,
     });
 
-    console.log(swal)
-      
-    //   const labelElement = document.createElement('span');
-    //   labelElement.classList.add('text-float')
-    //   labelElement.textContent = locationName;
-    //   labelElement.style.left = event.e.x.toString() + 'px';
-    //   labelElement.style.top = event.e.y.toString() + 'px';
-    //   document.body.appendChild(labelElement)
-    // const rect = rectElement.create({
-    //   x: event.e.x,
-    //   y: event.e.y,
-    //   label: locationName
-    // });
+    if(swal.isDismissed) {
+      return;
+    }
 
-    // rect.on('moving', function (event) {
-    //   console.log('moving', event)
-    // })
-    
-    // mainCanvas.canvas.add(rect);
+    const rect = rectElement.create({
+      x: event.e.x,
+      y: event.e.y,
+      label: swal.value,
+    });
+
+    mainCanvas.canvas.add(rect);
+
+    console.log(rect.data)
   }
 }
 

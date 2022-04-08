@@ -5,7 +5,7 @@ interface ICreateElement {
   y: number,
   width?: number,
   height?: number,
-  label?: string,
+  label: string,
 }
 
 interface IElement {
@@ -18,8 +18,8 @@ class RectElement implements IElement {
     const rect = new fabric.Rect({
       left: x,
       top: y,
-      width: 50,
-      height: 50,
+      width: 150,
+      height: 100,
       fill: '#ffffff',
       shadow: new fabric.Shadow({
         color: 'black',
@@ -28,6 +28,23 @@ class RectElement implements IElement {
       data: {
         label,
       }
+    });
+
+    const labelElement = document.createElement('span');
+    labelElement.classList.add('text-float');
+
+    labelElement.textContent = label;
+    
+    labelElement.style.left = (x + 5).toString() + 'px';
+    labelElement.style.top = (y + 5).toString() + 'px';
+    
+    document.body.appendChild(labelElement);
+
+    rect.on('moving', function (event) {
+      const [ coords ] = rect.getCoords(); 
+      
+      labelElement.style.left = (coords.x).toString() + 'px';
+      labelElement.style.top = (coords.y).toString() + 'px';
     });
     
     return rect;
