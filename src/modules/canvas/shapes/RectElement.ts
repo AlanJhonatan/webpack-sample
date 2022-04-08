@@ -5,15 +5,16 @@ interface ICreateElement {
   y: number,
   width?: number,
   height?: number,
+  label?: string,
 }
 
 interface IElement {
-  create({x, y, width, height}: ICreateElement): fabric.Object
+  create({x, y, width, height, label}: ICreateElement): fabric.Object
   delete(): void
 }
 
 class RectElement implements IElement {
-  create({ x, y }: ICreateElement): fabric.Object {
+  create({ x, y, label }: ICreateElement): fabric.Object {
     const rect = new fabric.Rect({
       left: x,
       top: y,
@@ -23,7 +24,10 @@ class RectElement implements IElement {
       shadow: new fabric.Shadow({
         color: 'black',
         blur: 2, 
-      })
+      }),
+      data: {
+        label,
+      }
     });
     
     return rect;
