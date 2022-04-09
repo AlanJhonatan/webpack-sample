@@ -8,9 +8,15 @@ interface ICreateElement {
   label: string,
 }
 
+interface IElementData {
+  id: string,
+  label: string,
+  locations: IElementData[],
+}
+
 interface IElement {
   create({x, y, width, height, label}: ICreateElement): fabric.Object
-  delete(): void
+  delete(): void,
 }
 
 class RectElement implements IElement {
@@ -26,7 +32,9 @@ class RectElement implements IElement {
         blur: 2, 
       }),
       data: {
+        id: window.crypto.randomUUID(),
         label,
+        locations: [],
       }
     });
 
@@ -55,4 +63,4 @@ class RectElement implements IElement {
   }
 }
 
-export { RectElement };
+export { RectElement, IElementData };
