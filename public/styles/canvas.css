@@ -2,3 +2,26 @@ canvas {
   width: 100%;
   height: 100%;
 }
+
+#control-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  top: 87.5%;
+  display: flex;
+  color: aliceblue;
+  justify-content: center;
+}
+
+#control-bar {
+  border-radius: 8px;
+  width: 80%;
+  height: 100%;
+  padding: 8px;
+  background-color: #293845;
+}
+
+#control-bar ul li {
+  list-style-type: disc;
+  display: inline-block;
+}
